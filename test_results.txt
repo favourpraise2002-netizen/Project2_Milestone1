@@ -1,7 +1,25 @@
+CELL VERIFICATION - NOVEMBER 8, 2026
+Machine: UNT CELL16
+Compiler: g++ C++17
+
+Build command: make
+Build result: PASS
+
+Test command: python3 tests/run_tests.py
+Result: 11/11 PASS
+
+Manual facility tests:
+1. Display facilities - PASS (10 facilities)
+2. Search F004 - PASS (Computer Lab A found)
+3. Search f004 - PASS (case-insensitive)
+4. Search F999 - PASS (not found)
+5. Collision test - PASS (1 collision)
+6. Duplicate ID - PASS (1 rejected)
+7. Exit menu - PASS
+
+All results observed on UNT CELL16.
 PROJECT 2 MILESTONE 1 - TEST RESULTS
-Execution environment: local Linux container, g++ C++17; CELL not yet verified.
 Command: make && python3 tests/run_tests.py
-Do not mark CELL testing completed until separately performed on CELL.
 
 T01: Sample load summaries
 Input directory: data
