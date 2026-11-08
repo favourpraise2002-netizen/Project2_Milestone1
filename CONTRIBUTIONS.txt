@@ -1,25 +1,46 @@
-PROJECT 2 MILESTONE 1 CONTRIBUTIONS
-Group members: Favour, Ken, Ademola
+# PROJECT 2 MILESTONE 1 — CONTRIBUTIONS
 
-Please review and replace this planning section with ACCURATE completed work
-before submission. Do not claim a member implemented code they did not write,
-review, test or meaningfully contribute to.
+**Group Members:** Favour, Ken, Ademola
 
-Planned ownership:
-- Favour: FacilityDatabase, HashTable, facility-ID validation/lookup,
-  collision and duplicate-key tests, facility documentation.
-- Ken: CampusGraph, connections validation, graph display/degrees, BFS,
-  connected/isolated/unknown-building tests.
-- Ademola: DepartmentTree, add/search/preorder, menu integration,
-  tree and menu testing.
-- Shared: Utils helpers, input validation, README/design notes, regression
-  testing, CELL verification, ZIP/repository checking.
+## Favour — Facilities, Hash Table Testing, and Repository Setup
 
-Before submission record for EACH person:
-- Actual modules/files changed:
-- Specific bugs fixed and tests run:
-- Relevant GitHub commit(s):
-- Shared contributions:
+**Work completed:**
+- Created the Project 2 Milestone 1 GitHub repository.
+- Uploaded and organized the provided project files.
+- Compiled the C++ project on UNT CELL16.
+- Tested facility listing and facility ID searches.
+- Verified uppercase and lowercase searches.
+- Tested missing facility IDs and duplicate-key rejection.
+- Verified the hash collision diagnostic.
+- Ran all 11 automated tests successfully.
+- Updated test_results.txt with CELL16 testing evidence.
 
-Important: A shared downloaded starter package does NOT replace meaningful
-independent commits under each group member's own GitHub account.
+**Files:** test_results.txt, repository setup files.
+
+**GitHub commits:** Initial project uploads and CELL16 testing documentation update.
+
+## Ken — Campus Graph and BFS
+
+**Assigned responsibilities:**
+- Review and contribute to CampusGraph.
+- Verify building and connection validation.
+- Test graph display, degrees, and BFS.
+- Test isolated and unknown buildings.
+
+**Completed work and GitHub commits:** Pending confirmation from Ken.
+
+## Ademola — Department Tree and Main Menu
+
+**Assigned responsibilities:**
+- Review and contribute to DepartmentTree.
+- Test adding and searching departments.
+- Verify hierarchy and preorder traversal.
+- Review menu integration and input validation.
+
+**Completed work and GitHub commits:** Pending confirmation from Ademola.
+
+## Shared Testing and Integration
+
+The starter project compiled successfully on UNT CELL16 on November 8, 2026. All 11 automated smoke tests passed.
+
+Additional individual contributions and commit references will be recorded after each group member completes and verifies their assigned work.
