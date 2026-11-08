@@ -1,0 +1,9 @@
+ # header
+ f004 | Lab 1 | library | Computer Lab
+F004|Duplicate ID|Library|Study
+F123|Unknown Location|Missing Building|Study
+FABC|Bad ID|Library|Study
+F005| Room #5 | STUDENT UNION | Classroom
+F000|Empty Field| |Study
+F020|TooFewFields|Library
+F021|Valid Second Facility|Library|Lab

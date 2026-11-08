@@ -1,0 +1,8 @@
+ # header
+Library|Student Union
+student union|LIBRARY
+Library|Library
+Library|No Such Building
+Library|Unknown Hall
+Library|
+Library|Student Union|extra

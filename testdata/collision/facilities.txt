@@ -1,0 +1,4 @@
+# F001 and F014 hash into the same bucket when capacity is 17.
+F001|First Room|Library|Study
+F014|Second Room|Library|Study
+f001|Duplicate Must Be Rejected|Library|Study
