@@ -1,0 +1,81 @@
+PROJECT 2 MILESTONE 1 - TEST RESULTS
+Execution environment: local Linux container, g++ C++17; CELL not yet verified.
+Command: make && python3 tests/run_tests.py
+Do not mark CELL testing completed until separately performed on CELL.
+
+T01: Sample load summaries
+Input directory: data
+Input menu lines (\n-separated): '10'
+Expected: buildings.txt: 7 accepted, 0 rejected; connections.txt: 6 accepted, 0 rejected; facilities.txt: 10 accepted, 0 rejected; departments.txt: 7 accepted, 0 rejected
+Actual (confirmed excerpts): buildings.txt: 7 accepted, 0 rejected; connections.txt: 6 accepted, 0 rejected; facilities.txt: 10 accepted, 0 rejected; departments.txt: 7 accepted, 0 rejected
+Result: PASS (exit code 0)
+
+T02: Facility searches: found, lowercase, invalid and missing
+Input directory: data
+Input menu lines (\n-separated): '2\nf004\n2\nF004\n2\n004\n2\nf999\n10'
+Expected: Found: F004 | Computer Lab A; Invalid ID format; Not found: no facility with ID F999
+Actual (confirmed excerpts): Found: F004 | Computer Lab A; Invalid ID format; Not found: no facility with ID F999
+Result: PASS (exit code 0)
+
+T03: Graph display, degrees, isolated building, BFS from library
+Input directory: data
+Input menu lines (\n-separated): '3\n4\n5\n Library \n5\nObservatory\n5\nMissing Hall\n10'
+Expected: Observatory: (no connections); Total buildings: 7; Total connections: 6; Engineering Building - degree 1; Reachable: 6 of 7 buildings; Reachable: 1 of 7 buildings; unknown building: Missing Hall
+Actual (confirmed excerpts): Observatory: (no connections); Total buildings: 7; Total connections: 6; Engineering Building - degree 1; Reachable: 6 of 7 buildings; Reachable: 1 of 7 buildings; unknown building: Missing Hall
+Result: PASS (exit code 0)
+
+T04: Tree root / child / missing and preorder / add
+Input directory: data
+Input menu lines (\n-separated): '7\nUniversity\n7\nComputer Science\n7\nMissing\n6\nNew Department\nUniversity\n8\n9\n10'
+Expected: Parent: None; Children: 2; Depth: 2; Department not found: Missing; Added department: New Department;     New Department; University ->
+Actual (confirmed excerpts): Parent: None; Children: 2; Depth: 2; Department not found: Missing; Added department: New Department;     New Department; University ->
+Result: PASS (exit code 0)
+
+T05: Collision and duplicate ID: 2 accepted, 1 rejected, 1 collision
+Input directory: testdata/collision
+Input menu lines (\n-separated): '1\n2\nf001\n2\nF014\n10'
+Expected: facilities.txt: 2 accepted, 1 rejected; Hash capacity: 17, entries: 2, collisions: 1; duplicate facility ID: F001; F001 | First Room; F014 | Second Room
+Actual (confirmed excerpts): facilities.txt: 2 accepted, 1 rejected; Hash capacity: 17, entries: 2, collisions: 1; duplicate facility ID: F001; F001 | First Room; F014 | Second Room
+Result: PASS (exit code 0)
+
+T06: Malformed lines, CRLF, reversed edges, unknown refs, duplicate case
+Input directory: testdata/validation
+Input menu lines (\n-separated): '1\n3\n8\n10'
+Expected: buildings.txt: 3 accepted, 2 rejected; connections.txt: 2 accepted, 5 rejected; facilities.txt: 3 accepted, 5 rejected; departments.txt: 3 accepted, 4 rejected; duplicate or reversed connection; unknown building: Missing Building; F004 | Lab 1 | Library; F005 | Room #5 | STUDENT UNION
+Actual (confirmed excerpts): buildings.txt: 3 accepted, 2 rejected; connections.txt: 2 accepted, 5 rejected; facilities.txt: 3 accepted, 5 rejected; departments.txt: 3 accepted, 4 rejected; duplicate or reversed connection; unknown building: Missing Building; F004 | Lab 1 | Library; F005 | Room #5 | STUDENT UNION
+Result: PASS (exit code 0)
+
+T07: Empty files, empty tree root addition without parent prompt
+Input directory: testdata/empty
+Input menu lines (\n-separated): '3\n4\n5\nLibrary\n8\n9\n6\nNew Root Name\n7\nnew root name\n10'
+Expected: No buildings available.; Total buildings: 0; Department tree is empty.; Added department: New Root Name; Parent: None; Depth: 0
+Actual (confirmed excerpts): No buildings available.; Total buildings: 0; Department tree is empty.; Added department: New Root Name; Parent: None; Depth: 0
+Result: PASS (exit code 0)
+
+T08: Missing file continues without crash
+Input directory: testdata/missing
+Input menu lines (\n-separated): '10'
+Expected: ERROR cannot open testdata/missing/connections.txt; connections.txt: 0 accepted, 0 rejected; facilities.txt: 1 accepted, 0 rejected
+Actual (confirmed excerpts): ERROR cannot open testdata/missing/connections.txt; connections.txt: 0 accepted, 0 rejected; facilities.txt: 1 accepted, 0 rejected
+Result: PASS (exit code 0)
+
+T09: Bad menu input/blank names recovers and returns to menu
+Input directory: data
+Input menu lines (\n-separated): '\nabc\n-1\n999\n2\n \n5\n \n6\n \n0'
+Expected: Error: invalid menu choice.; Error: name cannot be blank.; Exiting.
+Actual (confirmed excerpts): Error: invalid menu choice.; Error: name cannot be blank.; Exiting.
+Result: PASS (exit code 0)
+
+T10: Tree rejects repeated names and unknown parents in interactive additions
+Input directory: data
+Input menu lines (\n-separated): '6\nPhysics\nUniversity\n6\nNew Program\nUnknown Parent\n6\nNew Program\nCollege of Science\n7\nnew program\n10'
+Expected: duplicate department name: Physics; unknown parent department: Unknown Parent; Added department: New Program; Parent: College of Science
+Actual (confirmed excerpts): duplicate department name: Physics; unknown parent department: Unknown Parent; Added department: New Program; Parent: College of Science
+Result: PASS (exit code 0)
+
+T11: Root-only tree reports child count and preorder
+Input directory: testdata/collision
+Input menu lines (\n-separated): '7\nUniversity\n8\n9\n10'
+Expected: Name: University; Parent: None; Children: 0; Depth: 0; Choice: University
+Actual (confirmed excerpts): Name: University; Parent: None; Children: 0; Depth: 0; Choice: University
+Result: PASS (exit code 0)

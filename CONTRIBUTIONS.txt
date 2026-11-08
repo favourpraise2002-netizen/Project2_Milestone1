@@ -1,0 +1,25 @@
+PROJECT 2 MILESTONE 1 CONTRIBUTIONS
+Group members: Favour, Ken, Ademola
+
+Please review and replace this planning section with ACCURATE completed work
+before submission. Do not claim a member implemented code they did not write,
+review, test or meaningfully contribute to.
+
+Planned ownership:
+- Favour: FacilityDatabase, HashTable, facility-ID validation/lookup,
+  collision and duplicate-key tests, facility documentation.
+- Ken: CampusGraph, connections validation, graph display/degrees, BFS,
+  connected/isolated/unknown-building tests.
+- Ademola: DepartmentTree, add/search/preorder, menu integration,
+  tree and menu testing.
+- Shared: Utils helpers, input validation, README/design notes, regression
+  testing, CELL verification, ZIP/repository checking.
+
+Before submission record for EACH person:
+- Actual modules/files changed:
+- Specific bugs fixed and tests run:
+- Relevant GitHub commit(s):
+- Shared contributions:
+
+Important: A shared downloaded starter package does NOT replace meaningful
+independent commits under each group member's own GitHub account.

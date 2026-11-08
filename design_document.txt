@@ -1,0 +1,60 @@
+PROJECT 2 MILESTONE 1 DESIGN DOCUMENT
+Smart Campus Navigation and Facility Analytics System
+
+Input normalization and validation:
+Shared Utils helper reads full lines with getline; trims spaces, tabs, CR/LF
+without changing internal spaces, ignores blank and first-nonspace # comments,
+and splits preserving empty fields. Each module warns with file, physical line
+number, and reason, and continues. Loaders run in the required order.
+
+Facility database:
+A std::vector<Facility> keeps accepted facilities in original file order.
+The ID is normalized to uppercase BEFORE format validation or hashing.
+Allowed format is exactly F followed by 3 ASCII digits. A duplicate key is
+rejected without changing the original record, table or collision count.
+Facility building names use the canonical spelling from buildings.txt.
+
+Custom hash table:
+We implement a hash function ourselves (NOT std::hash, map or unordered_map).
+For every character c in the normalized ID, initialize h=0 and update:
+    h = (31 * h + unsigned ASCII value(c)) % capacity
+The resulting bucket index always lies from 0 to capacity-1.
+
+Collision strategy: separate chaining with a vector of key/index pairs in
+ each bucket. This handles all accepted records without a maximum number of
+ keys. We chose separate chaining because it is easy to explain, keeps
+ lookup restricted to one bucket, and supports arbitrary record counts.
+Initial capacity: 17 buckets (HashTable::DEFAULT_CAPACITY); no resizing
+is required because chains grow dynamically. There is no "full table" rejection.
+Collision definition: ONE collision if and only if a successfully accepted
+new ID is inserted into a bucket that already contains at least one accepted
+ID. Duplicate attempts are checked first and add ZERO to the collision count.
+The diagnostics report bucket capacity, accepted entries and accepted
+collisions. Test IDs F001 and F014 both hash to bucket 11 at capacity 17.
+
+Campus graph:
+Dynamically sized adjacency-list representation: vector of buildings where
+each stores its name and a vector of neighbor indices. It uses memory in
+proportion to the number of buildings and connections, and preserves record
+order and neighbor insertion order. Every accepted undirected edge inserts
+both endpoints but increments total connections once. Duplicate or reversed
+edges, self-edges, and unknown buildings are rejected. An isolated building
+has an empty neighbor list. Building name matching ignores case.
+BFS uses std::queue, and marks nodes visited as they are ENQUEUED. It prints
+visit order, edge distances and the total reachable count including start.
+The same graph object supports display, degrees, and BFS.
+
+Department general tree:
+A tree node owns a vector of unique_ptr children (any number), and stores
+its parent pointer for searching and depth. An empty tree accepts a new root
+without a parent prompt; other additions require a known earlier parent.
+Loading follows the same rule, with first accepted row requiring NONE.
+Preorder hierarchy prints 4 spaces per level; plain preorder displays a
+single sequence. Smart pointers reclaim child nodes automatically.
+
+Modules/classes:
+Utils: parsing and warnings; HashTable: bucket hashing and key lookup;
+FacilityDatabase: facility records, file validations, display and ID lookup;
+CampusGraph: building/edge loading, adjacency, BFS and graph statistics;
+DepartmentTree: general-tree load, insertion, search and traversals;
+main: only loader coordination, prompts and numbered menu.
