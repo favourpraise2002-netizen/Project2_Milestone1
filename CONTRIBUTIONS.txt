@@ -47,16 +47,22 @@ GitHub commit: Add disconnected campus graph BFS test
 
 ## Ademola — Department Tree and Main Menu
 
-**Assigned responsibilities:**
-- Review and contribute to DepartmentTree.
-- Test adding and searching departments.
-- Verify hierarchy and preorder traversal.
-- Review menu integration and input validation.
+**Work completed:**
+- Implemented the DepartmentTree class with its structure and methods.
+- Added DepartmentTree header and implementation files.
+- Cleaned up the main.cpp file.
+- Merged contributions into the main branch.
+- Final integrated project passed all 11 automated smoke tests on UNT CELL16.
 
-**Completed work and GitHub commits:** Pending confirmation from Ademola.
+**Files:** DepartmentTree.h, DepartmentTree.cpp, main.cpp, related src/ files.
+
+**GitHub branch:** ade-department-tree-menu
+
+**GitHub commits:** Implement DepartmentTree class with basic functionality; Add DepartmentTree header file with structure and methods; clean up main.cpp by removing comments.
 
 ## Shared Testing and Integration
+The final merged project compiled successfully on UNT CELL16 on November 8, 2026, with no compilation errors.
 
-The starter project compiled successfully on UNT CELL16 on November 8, 2026. All 11 automated smoke tests passed.
+All 11 automated smoke tests passed after Ken's and Ademola's contributions were merged into the main branch.
 
-Additional individual contributions and commit references will be recorded after each group member completes and verifies their assigned work.
+All three group members' contributions are documented above.
