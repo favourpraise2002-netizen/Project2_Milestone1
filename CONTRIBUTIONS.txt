@@ -21,13 +21,29 @@
 
 ## Ken — Campus Graph and BFS
 
-**Assigned responsibilities:**
-- Review and contribute to CampusGraph.
-- Verify building and connection validation.
-- Test graph display, degrees, and BFS.
-- Test isolated and unknown buildings.
+Work completed:
 
-**Completed work and GitHub commits:** Pending confirmation from Ken.
+Reviewed CampusGraph.cpp and CampusGraph.h.
+
+Checked building and connection validation.
+
+Tested graph display, building degrees, and BFS.
+
+Verified that isolated and unknown buildings were handled correctly.
+
+Created a disconnected graph test with 4 buildings and 2 connections.
+
+Confirmed that BFS reached only 2 of the 4 buildings when starting from Building A.
+
+Ran all 11 automated tests successfully on my Mac.
+
+Committed and pushed my test files to GitHub.
+
+Files: testdata/ken_disconnected/
+
+GitHub branch: ken-campus-graph
+
+GitHub commit: Add disconnected campus graph BFS test
 
 ## Ademola — Department Tree and Main Menu
 
